@@ -1,7 +1,5 @@
 package com.example.simbirsoftmobile.kotlin.part1
 
-import kotlin.jvm.Throws
-
 class Book(
     override val price: Int,
     override val wordCount: Int
@@ -19,8 +17,21 @@ class Book(
         else -> throw IllegalStateException("$wordCount меньше единицы")
     }
 
-    override fun equals(other: Any?): Boolean =
-        if (other is Book) price == other.price && wordCount == other.wordCount else false
+    override fun equals(other: Any?): Boolean {
+        if (other === this) {
+            return true
+        }
+
+        if (other !is Book) {
+            return false
+        }
+
+        if (other.hashCode() != this.hashCode()) {
+            return false
+        }
+
+        return price == other.price && wordCount == other.wordCount
+    }
 
     override fun hashCode(): Int {
         var result = price
