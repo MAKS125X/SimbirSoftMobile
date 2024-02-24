@@ -1,11 +1,69 @@
 package com.example.simbirsoftmobile
 
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuItem
+import android.widget.Toast
+import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.simbirsoftmobile.databinding.ActivityMainBinding
+import com.example.simbirsoftmobile.models.FriendUI
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var binding: ActivityMainBinding
+    private val adapter: FriendAdapter by lazy { FriendAdapter() }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        binding = ActivityMainBinding.inflate(layoutInflater)
+        setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+        supportActionBar?.displayOptions = ActionBar.DISPLAY_SHOW_CUSTOM
+
+        initAdapter()
+        initBottomNavigation()
+    }
+
+    private fun initAdapter() {
+        binding.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
+        adapter.submitList(testList)
+        binding.friendRecycler.adapter = adapter
+        binding.friendRecycler.layoutManager = LinearLayoutManager(this)
+    }
+
+    private fun initBottomNavigation() {
+        binding.bottomNavigationView.selectedItemId = R.id.profile
+        binding.bottomNavigationView.setOnItemSelectedListener {
+            val toastMassage = it.title
+            Toast.makeText(this, toastMassage, Toast.LENGTH_SHORT).show()
+            true
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
+        R.id.action_settings -> {
+            Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
+            true
+        }
+
+        else -> {
+            super.onOptionsItemSelected(item)
+        }
+    }
+
+    companion object {
+        private val testList = listOf(
+            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+            FriendUI("Евгений Александров", R.drawable.avatar_2),
+            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+        )
     }
 }

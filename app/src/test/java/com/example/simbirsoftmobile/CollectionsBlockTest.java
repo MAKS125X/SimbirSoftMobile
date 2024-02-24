@@ -2,7 +2,7 @@ package com.example.simbirsoftmobile;
 
 import static org.junit.Assert.assertEquals;
 
-import com.example.simbirsoftmobile.collections.CollectionsBlock;
+import com.example.simbirsoftmobile.basics.collections.CollectionsBlock;
 
 import org.junit.BeforeClass;
 import org.junit.Test;

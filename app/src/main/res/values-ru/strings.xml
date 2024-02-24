@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">Хочу помочь</string>
+    <string name="mode_icon">Редактировать</string>
+    <string name="push">Получать push-уведомления</string>
+    <string name="your_friends">Ваши друзья</string>
+    <string name="profile_picture">Картинка профиля</string>
+    <string name="profile">Профиль</string>
+    <string name="logout">Выйти из аккаунта</string>
+    <string name="news_icon">Новости</string>
+    <string name="search_icon">Поиск</string>
+    <string name="help_icon">Помочь</string>
+    <string name="history_icon">История</string>
+    <string name="profile_icon">Профиль</string>
 </resources>

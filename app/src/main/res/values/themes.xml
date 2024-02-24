@@ -1,8 +1,13 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
-    <style name="Base.Theme.SimbirSoftMobile" parent="Theme.Material3.DayNight.NoActionBar">
+    <style name="Base.Theme.SimbirSoftMobile" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/green_leaf</item>
+        <item name="colorOnPrimary">@color/white</item>
+        <item name="backgroundColor">@color/white</item>
+        <item name="colorOnBackground">@color/black87</item>
+        <item name="helperText">@color/black38</item>
+        <item name="dividerColor">@color/cool_grey</item>
     </style>
 
     <style name="Theme.SimbirSoftMobile" parent="Base.Theme.SimbirSoftMobile" />

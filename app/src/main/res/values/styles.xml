@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="ToolbarTitle">
+        <item name="android:textSize">@dimen/toolbar_text_size</item>
+        <item name="android:fontFamily">@font/officinasansextraboldscc</item>
+        <item name="android:textColor">?attr/colorOnPrimary</item>
+    </style>
+
+    <style name="ScreenH1TextView">
+        <item name="android:textSize">@dimen/screen_h1_text_size</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="ProfileAttributeHeaderTextView">
+        <item name="android:textSize">@dimen/attribute_header_text_size</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">?attr/helperText</item>
+    </style>
+
+    <style name="ProfileAttributeValueTextView">
+        <item name="android:textSize">@dimen/attribute_value_text_size</item>
+        <item name="fontFamily">@font/roboto</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="ScreenH2TextView">
+        <item name="android:textSize">@dimen/screen_h2_text_size</item>
+        <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="Switch" parent="ProfileAttributeValueTextView">
+        <item name="colorControlActivated">?attr/colorPrimary</item>
+    </style>
+
+    <style name="FriendCardImageView">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="SectionDivider">
+        <item name="android:background">?attr/dividerColor</item>
+    </style>
+</resources>

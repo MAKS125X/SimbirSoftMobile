@@ -3,7 +3,7 @@ package com.example.simbirsoftmobile;
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;
 
-import com.example.simbirsoftmobile.training.StringsTraining;
+import com.example.simbirsoftmobile.basics.training.StringsTraining;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
