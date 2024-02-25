@@ -8,6 +8,7 @@
         <item name="colorOnBackground">@color/black87</item>
         <item name="helperText">@color/black38</item>
         <item name="dividerColor">@color/cool_grey</item>
+        <item name="android:statusBarColor">?attr/colorPrimary</item>
     </style>
 
     <style name="Theme.SimbirSoftMobile" parent="Base.Theme.SimbirSoftMobile" />
