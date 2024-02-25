@@ -28,10 +28,10 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun initAdapter() {
-        binding.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
+        binding.layoutBased.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
         adapter.submitList(testList)
-        binding.friendRecycler.adapter = adapter
-        binding.friendRecycler.layoutManager = LinearLayoutManager(this)
+        binding.layoutBased.friendRecycler.adapter = adapter
+        binding.layoutBased.friendRecycler.layoutManager = LinearLayoutManager(this)
     }
 
     private fun initBottomNavigation() {
@@ -62,7 +62,16 @@ class MainActivity : AppCompatActivity() {
     companion object {
         private val testList = listOf(
             FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
             FriendUI("Евгений Александров", R.drawable.avatar_2),
+            FriendUI("Евгений Александров", R.drawable.avatar_2),
+            FriendUI("Евгений Александров", R.drawable.avatar_2),
+            FriendUI("Евгений Александров", R.drawable.avatar_2),
+            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
             FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
         )
     }
