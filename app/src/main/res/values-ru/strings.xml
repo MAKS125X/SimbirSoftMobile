@@ -12,4 +12,5 @@
     <string name="help_icon">Помочь</string>
     <string name="history_icon">История</string>
     <string name="profile_icon">Профиль</string>
+    <string name="loading">Загрузка…</string>
 </resources>

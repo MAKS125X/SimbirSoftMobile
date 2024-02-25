@@ -16,6 +16,7 @@ class MainActivity : AppCompatActivity() {
     private val adapter: FriendAdapter by lazy { FriendAdapter() }
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        setTheme(R.style.Theme_SimbirSoftMobile)
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
