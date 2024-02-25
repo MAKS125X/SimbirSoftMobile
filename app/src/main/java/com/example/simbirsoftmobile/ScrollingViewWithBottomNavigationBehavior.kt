@@ -14,19 +14,19 @@ class ScrollingViewWithBottomNavigationBehavior(context: Context, attrs: Attribu
     override fun layoutDependsOn(
         parent: CoordinatorLayout,
         child: View,
-        dependency: View
+        dependency: View,
     ): Boolean {
         return super.layoutDependsOn(
             parent,
             child,
-            dependency
+            dependency,
         ) || dependency is BottomNavigationView
     }
 
     override fun onDependentViewChanged(
         parent: CoordinatorLayout,
         child: View,
-        dependency: View
+        dependency: View,
     ): Boolean {
         val result = super.onDependentViewChanged(parent, child, dependency)
 

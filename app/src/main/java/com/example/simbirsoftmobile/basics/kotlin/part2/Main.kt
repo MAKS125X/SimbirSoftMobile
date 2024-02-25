@@ -48,20 +48,20 @@ fun main() {
     // Задание 9
     println("\nЗадание 9")
 
-    val callBack = object : AuthCallback {
-        override fun authSuccess() {
-            println("Статус авторизации: успех")
-        }
+    val callBack =
+        object : AuthCallback {
+            override fun authSuccess() {
+                println("Статус авторизации: успех")
+            }
 
-        override fun authFailed() {
-            println("Статус авторизации: ошибка")
+            override fun authFailed() {
+                println("Статус авторизации: ошибка")
+            }
         }
-    }
 
     println("Вызов методов анонимного объекта")
     callBack.authSuccess()
     callBack.authFailed()
-
 
     // Задание 10
     println("\nЗадание 10")
@@ -86,18 +86,23 @@ fun main() {
 /**
  * Сheck that the user is over 18 years old and print this info
  */
-fun User.isAdult(): Boolean = if (age > 18) {
-    println("$name совершеннолетний")
-    true
-} else {
-    println("$name младше 19-ти лет")
-    false
-}
+fun User.isAdult(): Boolean =
+    if (age > 18) {
+        println("$name совершеннолетний")
+        true
+    } else {
+        println("$name младше 19-ти лет")
+        false
+    }
 
 /**
  * Authenticate adult [user] with [callBack] and [updateCache] effect
  */
-inline fun auth(user: User, callBack: AuthCallback, updateCache: () -> Unit) {
+inline fun auth(
+    user: User,
+    callBack: AuthCallback,
+    updateCache: () -> Unit,
+) {
     if (user.isAdult()) {
         callBack.authSuccess()
         updateCache()
@@ -109,7 +114,10 @@ inline fun auth(user: User, callBack: AuthCallback, updateCache: () -> Unit) {
 /**
  * Perform a certain authorization [action] with [callBack] for login
  */
-fun doAction(action: Action, callBack: AuthCallback) {
+fun doAction(
+    action: Action,
+    callBack: AuthCallback,
+) {
     when (action) {
         is Action.Logout -> {
             println("Logout started")

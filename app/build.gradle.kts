@@ -1,6 +1,9 @@
+import org.jlleitschuh.gradle.ktlint.reporter.ReporterType
+
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("org.jlleitschuh.gradle.ktlint") version "12.1.0"
 }
 
 android {
@@ -22,7 +25,7 @@ android {
             isMinifyEnabled = false
             proguardFiles(
                 getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                "proguard-rules.pro",
             )
         }
     }
@@ -38,6 +41,16 @@ android {
     }
 }
 
+ktlint {
+    android = true
+    ignoreFailures = false
+    reporters {
+        reporter(ReporterType.PLAIN)
+        reporter(ReporterType.SARIF)
+        reporter(ReporterType.CHECKSTYLE)
+    }
+}
+
 dependencies {
 
     implementation("androidx.core:core-ktx:1.12.0")
@@ -50,5 +63,5 @@ dependencies {
 
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
     implementation("androidx.coordinatorlayout:coordinatorlayout:1.2.0")
-    implementation("androidx.core:core-splashscreen:1.0.1")
+//    implementation("androidx.core:core-splashscreen:1.0.1")
 }

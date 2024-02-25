@@ -13,4 +13,5 @@
     <string name="history_icon">История</string>
     <string name="profile_icon">Профиль</string>
     <string name="loading">Загрузка…</string>
+    <string name="mobile_simbir_soft">MobileSimbirSoft</string>
 </resources>

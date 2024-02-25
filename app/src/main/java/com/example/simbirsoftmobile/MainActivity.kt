@@ -11,7 +11,6 @@ import com.example.simbirsoftmobile.databinding.ActivityMainBinding
 import com.example.simbirsoftmobile.models.FriendUI
 
 class MainActivity : AppCompatActivity() {
-
     private lateinit var binding: ActivityMainBinding
     private val adapter: FriendAdapter by lazy { FriendAdapter() }
 
@@ -49,31 +48,33 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
-    override fun onOptionsItemSelected(item: MenuItem) = when (item.itemId) {
-        R.id.action_settings -> {
-            Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
-            true
-        }
+    override fun onOptionsItemSelected(item: MenuItem) =
+        when (item.itemId) {
+            R.id.action_settings -> {
+                Toast.makeText(this, "Click", Toast.LENGTH_SHORT).show()
+                true
+            }
 
-        else -> {
-            super.onOptionsItemSelected(item)
+            else -> {
+                super.onOptionsItemSelected(item)
+            }
         }
-    }
 
     companion object {
-        private val testList = listOf(
-            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
-            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
-            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
-            FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
-            FriendUI("Евгений Александров", R.drawable.avatar_2),
-            FriendUI("Евгений Александров", R.drawable.avatar_2),
-            FriendUI("Евгений Александров", R.drawable.avatar_2),
-            FriendUI("Евгений Александров", R.drawable.avatar_2),
-            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
-            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
-            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
-            FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
-        )
+        private val testList =
+            listOf(
+                FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+                FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+                FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+                FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
+                FriendUI("Евгений Александров", R.drawable.avatar_2),
+                FriendUI("Евгений Александров", R.drawable.avatar_2),
+                FriendUI("Евгений Александров", R.drawable.avatar_2),
+                FriendUI("Евгений Александров", R.drawable.avatar_2),
+                FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+                FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+                FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+                FriendUI("Виктор Кузнецов", R.drawable.avatar_1),
+            )
     }
 }

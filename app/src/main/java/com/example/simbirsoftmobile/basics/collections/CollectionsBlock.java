@@ -14,6 +14,7 @@ import java.util.Map;
 import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Set;
+import java.util.logging.Logger;
 
 /**
  * Набор тренингов по работе со строками в java.
@@ -339,7 +340,6 @@ public class CollectionsBlock<T extends Comparable> {
 
             for (Grade grade : student.getGrades()) {
                 String subjectName = grade.getSubject().getName();
-                int gradeValue = grade.getValue();
 
                 subjectGradeMap.compute(subjectName, (k, v) -> (v == null)
                         ? grade.getValue()
@@ -454,8 +454,11 @@ public class CollectionsBlock<T extends Comparable> {
 }
 
 class StudentsProgram {
+
+    static Logger logger = Logger.getLogger(StudentsProgram.class.getName());
+
     public static void main(String[] args) {
-        CollectionsBlock<Integer> col = new CollectionsBlock<Integer>();
+        CollectionsBlock<Integer> col = new CollectionsBlock<>();
         ArrayList<CollectionsBlock.Student> students = new ArrayList<>();
         CollectionsBlock.Grade[] grades1 =
                 new CollectionsBlock.Grade[]{
@@ -492,28 +495,26 @@ class StudentsProgram {
 
         Map<String, Map<String, Double>> gradesByGroupAndSubject =
                 col.getAverageGradesByGroupAndSubject(students);
-        System.out.println("Средние оценки по группам и предметам: ");
+        logger.info("Средние оценки по группам и предметам: ");
         for (Map.Entry<String, Map<String, Double>> entry : gradesByGroupAndSubject.entrySet()) {
-            System.out.println("Группа:" + entry.getKey());
+            logger.info("Группа:" + entry.getKey());
             for (Map.Entry<String, Double> innerEntry : entry.getValue().entrySet()) {
-                System.out.println(innerEntry.getKey() + ": " + innerEntry.getValue());
+                logger.info(innerEntry.getKey() + ": " + innerEntry.getValue());
             }
-            System.out.println();
+            logger.info("\n");
         }
 
-        System.out.println("Самый младший студент: ");
-        System.out.println(col.findYoungestStudent(students).getFullName());
-        System.out.println();
+        logger.info("Самый младший студент: ");
+        logger.info(col.findYoungestStudent(students).getFullName());
 
-        System.out.println("Самый старший студент: ");
+        logger.info("\nСамый старший студент: ");
         col.findOldestStudent(students).getFullName();
-        System.out.println();
 
-        System.out.println("Лучший студент: ");
+        logger.info("\nЛучший студент: ");
         Map<String, CollectionsBlock.Student> bestStudentsByGroup =
                 col.findBestStudentsByGroup(students);
         for (Map.Entry<String, CollectionsBlock.Student> entry : bestStudentsByGroup.entrySet()) {
-            System.out.println(entry.getKey() + ": " + entry.getValue().getFullName());
+            logger.info(entry.getKey() + ": " + entry.getValue().getFullName());
         }
     }
 }

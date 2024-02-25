@@ -1,22 +1,28 @@
 package com.example.simbirsoftmobile.basics.training;
 
+import androidx.annotation.NonNull;
+
 import java.util.LinkedList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Практическое задание по Блоку III. Java. Часть 2
  */
 public class AdvancedTraining {
 
+    Logger logger = Logger.getLogger(getClass().getName());
+
     /**
      * Задание 3.
      */
     public void task3() {
-        Runnable runnable = () -> System.out.println("I love Java");
+        Runnable runnable = () -> logger.info("I love Java");
 
-        System.out.println("Единоразовый запуск лямбды");
+        logger.info("Единоразовый запуск лямбды");
         runnable.run();
 
-        System.out.println("Запуск лямбды заданное количество раз");
+        logger.info("Запуск лямбды заданное количество раз");
         repeatTask(10, runnable);
     }
 
@@ -42,7 +48,8 @@ public class AdvancedTraining {
      */
     public void task4() {
         Position location = new Position(0, 0);
-        System.out.println("Первоначальная позиция: " + location);
+        String logLocation;
+        logger.log(Level.INFO, "Первоначальная позиция: {}", location);
 
         Direction[] route = new Direction[]{Direction.UP, Direction.UP, Direction.LEFT,
                 Direction.DOWN, Direction.LEFT, Direction.DOWN,
@@ -51,7 +58,8 @@ public class AdvancedTraining {
 
         for (Direction direction : route) {
             location = moveByStep(direction, location);
-            System.out.println(location);
+            logLocation = location.toString();
+            logger.info(logLocation);
         }
     }
 
@@ -87,6 +95,7 @@ public class AdvancedTraining {
             this.y = y;
         }
 
+        @NonNull
         @Override
         public String toString() {
             return String.format("(%d;%d)", getX(), getY());
@@ -112,15 +121,15 @@ public class AdvancedTraining {
      * Задание 5.
      */
     public void task5() {
-        LinkedList<Shape> shapes = new LinkedList<Shape>();
+        LinkedList<Shape> shapes = new LinkedList<>();
         shapes.add(new Rectangle(2, 3));
         shapes.add(new Square(3));
         shapes.add(new Circle(2));
 
         for (Shape shape : shapes) {
-            System.out.println(shape.getClass().getSimpleName());
-            System.out.printf("Периметр: %.3f\n", shape.perimeter());
-            System.out.printf("Площадь: %.3f\n\n", shape.area());
+            logger.info(shape.getClass().getSimpleName());
+            logger.log(Level.INFO, "Периметр: {}", shape.perimeter());
+            logger.log(Level.INFO, "Площадь: {}", shape.area());
         }
     }
 

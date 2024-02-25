@@ -5,6 +5,7 @@
 
     <dimen name="screen_h1_text_size">24sp</dimen>
     <dimen name="screen_h1_margin_vertical">16dp</dimen>
+
     <dimen name="screen_h2_text_size">16sp</dimen>
 
     <dimen name="attribute_value_text_size">16sp</dimen>
@@ -21,6 +22,13 @@
 
     <dimen name="button_padding_horizontal">16dp</dimen>
 
+    <dimen name="friend_card_margin_bottom">10dp</dimen>
     <dimen name="friend_card_image_size">48dp</dimen>
     <dimen name="friend_card_image_margin_horizontal">20dp</dimen>
+
+    <dimen name="splash_screen_title_margin_top">130dp</dimen>
+    <dimen name="splash_screen_brand_margin_bottom">40dp</dimen>
+    <dimen name="splash_screen_progress_bar_size">48dp</dimen>
+    <dimen name="splash_screen_progress_bar_margin_top">83dp</dimen>
+    <dimen name="splash_screen_loading_margin_top">20dp</dimen>
 </resources>

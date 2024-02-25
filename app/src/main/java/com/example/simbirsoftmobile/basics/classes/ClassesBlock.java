@@ -10,6 +10,8 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import java.util.stream.Collectors;
 
 /**
@@ -33,6 +35,8 @@ public interface ClassesBlock {
         int first;
         int second;
 
+        Logger logger = Logger.getLogger(getClass().getName());
+
         public Pair(int first, int second) {
             setFirst(first);
             setSecond(second);
@@ -47,7 +51,7 @@ public interface ClassesBlock {
         }
 
         public void print() {
-            System.out.printf("(%d; %d)", getFirst(), getSecond());
+            logger.log(Level.INFO, "({0}; {1})", new Object[]{getFirst(), getSecond()});
         }
 
         public int getFirst() {
@@ -78,6 +82,8 @@ public interface ClassesBlock {
      */
     class DynamicArray {
         ArrayList<Integer> array;
+        Random random = new Random();
+        Logger logger = Logger.getLogger(getClass().getName());
 
         public DynamicArray(int size) {
             array = new ArrayList<>(size);
@@ -88,7 +94,6 @@ public interface ClassesBlock {
         }
 
         public void fillRandom() {
-            Random random = new Random();
             array.replaceAll(ignored -> random.nextInt(100));
         }
 
@@ -106,7 +111,8 @@ public interface ClassesBlock {
                 builder.append(array.get(i)).append(", ");
             }
             builder.append(array.get(array.size() - 1)).append("]");
-            System.out.println(builder.toString());
+            String result = builder.toString();
+            logger.info(result);
         }
     }
 
@@ -400,6 +406,9 @@ public interface ClassesBlock {
 
 
     class SubscriberController {
+        private SubscriberController() {
+        }
+
         /*
          * Получить сведения относительно абонентов,
          * у которых время городских переговоров превышает заданное.
@@ -515,7 +524,7 @@ public interface ClassesBlock {
             this.faculty = faculty;
         }
 
-        public ArrayList<Exam> getExams() {
+        public List<Exam> getExams() {
             return exams;
         }
 
@@ -738,7 +747,7 @@ public interface ClassesBlock {
             this.id = id;
         }
 
-        public LinkedList<OrderPosition> getOrderPositions() {
+        public List<OrderPosition> getOrderPositions() {
             return orderPositions;
         }
 

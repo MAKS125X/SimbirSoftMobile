@@ -140,5 +140,4 @@
                 android:text="@string/logout" />
         </LinearLayout>
     </LinearLayout>
-
 </androidx.core.widget.NestedScrollView>

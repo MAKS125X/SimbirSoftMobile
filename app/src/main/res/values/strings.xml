@@ -12,4 +12,5 @@
     <string name="history_icon">History</string>
     <string name="profile_icon">Profile</string>
     <string name="loading">Loading…</string>
+    <string name="mobile_simbir_soft">MobileSimbirSoft</string>
 </resources>

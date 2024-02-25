@@ -11,23 +11,27 @@ import com.example.simbirsoftmobile.databinding.FriendItemBinding
 import com.example.simbirsoftmobile.models.FriendUI
 
 class FriendAdapter : ListAdapter<FriendUI, FriendAdapter.ViewHolder>(DiffCallback()) {
-
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder =
+    override fun onCreateViewHolder(
+        parent: ViewGroup,
+        viewType: Int,
+    ): ViewHolder =
         ViewHolder(
             FriendItemBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
-                false
-            )
+                false,
+            ),
         )
 
-    override fun onBindViewHolder(holder: ViewHolder, position: Int) {
+    override fun onBindViewHolder(
+        holder: ViewHolder,
+        position: Int,
+    ) {
         holder.bind(getItem(position))
     }
 
     class ViewHolder(private val binding: FriendItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-
         fun bind(model: FriendUI) {
             with(binding) {
                 setupUI(model)
@@ -41,22 +45,27 @@ class FriendAdapter : ListAdapter<FriendUI, FriendAdapter.ViewHolder>(DiffCallba
     }
 
     class DiffCallback : DiffUtil.ItemCallback<FriendUI>() {
-        override fun areItemsTheSame(oldItem: FriendUI, newItem: FriendUI): Boolean {
+        override fun areItemsTheSame(
+            oldItem: FriendUI,
+            newItem: FriendUI,
+        ): Boolean {
             return oldItem.name == newItem.name
         }
 
-        override fun areContentsTheSame(oldItem: FriendUI, newItem: FriendUI): Boolean {
+        override fun areContentsTheSame(
+            oldItem: FriendUI,
+            newItem: FriendUI,
+        ): Boolean {
             return oldItem == newItem
         }
     }
 
     class CustomItemDecoration : RecyclerView.ItemDecoration() {
-
         override fun getItemOffsets(
             outRect: Rect,
             view: View,
             parent: RecyclerView,
-            state: RecyclerView.State
+            state: RecyclerView.State,
         ) {
             super.getItemOffsets(outRect, view, parent, state)
 

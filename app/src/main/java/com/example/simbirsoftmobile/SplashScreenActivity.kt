@@ -12,7 +12,7 @@ class SplashScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash_screen)
-        
+
         scheduleSplashScreen()
     }
 
@@ -24,7 +24,7 @@ class SplashScreenActivity : AppCompatActivity() {
                 startActivity(intent)
                 finish()
             },
-            splashScreenDuration
+            splashScreenDuration,
         )
     }
 }
