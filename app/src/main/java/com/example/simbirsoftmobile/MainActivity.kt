@@ -12,7 +12,7 @@ import com.example.simbirsoftmobile.models.FriendUI
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private val adapter: FriendAdapter by lazy { FriendAdapter() }
+    private val adapter: FriendAdapter by lazy { FriendAdapter(testList) }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         setTheme(R.style.Theme_SimbirSoftMobile)
@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 
     private fun initAdapter() {
         binding.layoutBased.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
-        adapter.submitList(testList)
         binding.layoutBased.friendRecycler.adapter = adapter
         binding.layoutBased.friendRecycler.layoutManager = LinearLayoutManager(this)
     }
@@ -62,7 +61,7 @@ class MainActivity : AppCompatActivity() {
 
     companion object {
         private val testList =
-            listOf(
+            arrayOf(
                 FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
                 FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
                 FriendUI("Дмитрий Валерьевич", R.drawable.avatar_3),
