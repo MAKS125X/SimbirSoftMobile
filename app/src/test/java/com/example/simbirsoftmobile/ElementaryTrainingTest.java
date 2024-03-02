@@ -2,7 +2,7 @@ package com.example.simbirsoftmobile;
 
 import static org.junit.Assert.assertEquals;
 
-import com.example.simbirsoftmobile.training.ElementaryTraining;
+import com.example.simbirsoftmobile.basics.training.ElementaryTraining;
 
 import org.junit.BeforeClass;
 import org.junit.Test;
