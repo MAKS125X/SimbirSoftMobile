@@ -36,4 +36,13 @@
     <dimen name="dialog_padding">28dp</dimen>
     <dimen name="dialog_item_image_size">24dp</dimen>
     <dimen name="dialog_image_margin_left">24dp</dimen>
+
+    <dimen name="category_layout_margin">4dp</dimen>
+    <dimen name="category_paddingVertical">12dp</dimen>
+    <dimen name="category_image_size">70dp</dimen>
+    <dimen name="category_image_margin_bottom">12dp</dimen>
+    <dimen name="category_text_size">18sp</dimen>
+
+    <dimen name="help_fragment_recycler_view_padding">4dp</dimen>
+    <dimen name="help_fragment_title_text_margin_vertical">20dp</dimen>
 </resources>

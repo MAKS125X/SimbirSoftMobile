@@ -1,4 +1,4 @@
-package com.example.simbirsoftmobile
+package com.example.simbirsoftmobile.presentation.screens.profile
 
 import android.net.Uri
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.appcompat.app.AlertDialog
 import androidx.core.content.FileProvider
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.FragmentEditPhotoDialogBinding
 import com.example.simbirsoftmobile.databinding.FragmentProfileBinding
 import com.example.simbirsoftmobile.models.FriendUI
@@ -48,9 +49,9 @@ class ProfileFragment : Fragment() {
             if (it != null && it) {
                 // Сброс ссылки, так как иначе обновление
                 // происходит только при перезапуске приложения
-                binding.profileIV.setImageURI(null)
+                binding.layoutBased.profileIV.setImageURI(null)
 
-                binding.profileIV.setImageURI(profilePhotoUri)
+                binding.layoutBased.profileIV.setImageURI(profilePhotoUri)
             }
         }
 
@@ -66,10 +67,10 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         if (profilePhotoFile.exists()) {
-            binding.profileIV.setImageURI(profilePhotoUri)
+            binding.layoutBased.profileIV.setImageURI(profilePhotoUri)
         }
 
-        binding.profileIV.setOnClickListener {
+        binding.layoutBased.profileIV.setOnClickListener {
             showEditPhotoDialog()
         }
 
@@ -92,16 +93,16 @@ class ProfileFragment : Fragment() {
         }
         dialogBinding.deletePictureLayout.setOnClickListener {
             profilePhotoFile.delete()
-            binding.profileIV.setImageResource(R.drawable.ic_standard_profile)
+            binding.layoutBased.profileIV.setImageResource(R.drawable.ic_standard_profile)
             dialog.dismiss()
         }
         dialog.show()
     }
 
     private fun initAdapter() {
-        binding.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
-        binding.friendRecycler.adapter = adapter
-        binding.friendRecycler.layoutManager = LinearLayoutManager(requireContext())
+        binding.layoutBased.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
+        binding.layoutBased.friendRecycler.adapter = adapter
+        binding.layoutBased.friendRecycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
     companion object {
