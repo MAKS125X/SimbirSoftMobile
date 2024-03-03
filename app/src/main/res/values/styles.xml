@@ -7,25 +7,26 @@
         <item name="android:textColor">?attr/colorOnPrimary</item>
     </style>
 
-    <style name="ScreenH1TextView">
-        <item name="android:textSize">@dimen/screen_h1_text_size</item>
+    <style name="LayoutText">
         <item name="fontFamily">@font/roboto</item>
+    </style>
+
+    <style name="ScreenH1TextView" parent="LayoutText">
+        <item name="android:textSize">@dimen/screen_h1_text_size</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
-    <style name="ProfileAttributeHeaderTextView">
+    <style name="ProfileAttributeHeaderTextView" parent="LayoutText">
         <item name="android:textSize">@dimen/attribute_header_text_size</item>
-        <item name="fontFamily">@font/roboto</item>
         <item name="android:textColor">?attr/helperText</item>
     </style>
 
-    <style name="ProfileAttributeValueTextView">
+    <style name="ProfileAttributeValueTextView" parent="LayoutText">
         <item name="android:textSize">@dimen/attribute_value_text_size</item>
-        <item name="fontFamily">@font/roboto</item>
         <item name="android:textColor">?attr/colorOnBackground</item>
     </style>
 
-    <style name="ScreenH2TextView">
+    <style name="ScreenH2TextView" parent="LayoutText">
         <item name="android:textSize">@dimen/screen_h2_text_size</item>
         <item name="fontFamily">@font/roboto</item>
     </style>
@@ -41,5 +42,14 @@
 
     <style name="SectionDivider">
         <item name="android:background">?attr/dividerColor</item>
+    </style>
+
+    <style name="DialogItemsText" parent="LayoutText">
+        <item name="android:textSize">@dimen/dialog_item_text_size</item>
+        <item name="android:textColor">?attr/colorOnBackground</item>
+    </style>
+
+    <style name="DialogItemsImage" parent="LayoutText">
+        <item name="android:tint">?attr/colorPrimary</item>
     </style>
 </resources>
