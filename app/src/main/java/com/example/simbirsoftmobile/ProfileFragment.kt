@@ -92,7 +92,7 @@ class ProfileFragment : Fragment() {
         }
         dialogBinding.deletePictureLayout.setOnClickListener {
             profilePhotoFile.delete()
-            binding.profileIV.setImageResource(R.drawable.image_man)
+            binding.profileIV.setImageResource(R.drawable.ic_standard_profile)
             dialog.dismiss()
         }
         dialog.show()

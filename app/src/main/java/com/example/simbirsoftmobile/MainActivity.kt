@@ -27,7 +27,8 @@ class MainActivity : AppCompatActivity() {
         binding.bottomNavigationView.setOnItemSelectedListener {
             when (it.itemId) {
                 R.id.profile -> {
-                    supportFragmentManager.beginTransaction().add(
+
+                    supportFragmentManager.beginTransaction().replace(
                         binding.fragmentHolder.id,
                         ProfileFragment.newInstance(),
                         ProfileFragment.TAG
