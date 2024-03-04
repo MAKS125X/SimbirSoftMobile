@@ -30,7 +30,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(
                         binding.fragmentHolder.id,
                         ProfileFragment.newInstance(),
-                        ProfileFragment.TAG
+                        ProfileFragment.TAG,
                     ).commit()
                 }
 
@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(
                         binding.fragmentHolder.id,
                         HelpFragment.newInstance(),
-                        HelpFragment.TAG
+                        HelpFragment.TAG,
                     ).commit()
                 }
 
@@ -46,7 +46,7 @@ class MainActivity : AppCompatActivity() {
                     supportFragmentManager.beginTransaction().replace(
                         binding.fragmentHolder.id,
                         SearchFragment.newInstance(),
-                        SearchFragment.TAG
+                        SearchFragment.TAG,
                     ).commit()
                 }
 

@@ -45,20 +45,21 @@ class SearchResultAdapter :
     }
 
     companion object {
-        private val DiffCallback = object : DiffUtil.ItemCallback<SearchResultUI>() {
-            override fun areItemsTheSame(
-                oldItem: SearchResultUI,
-                newItem: SearchResultUI
-            ): Boolean {
-                return oldItem.name == newItem.name
-            }
+        private val DiffCallback =
+            object : DiffUtil.ItemCallback<SearchResultUI>() {
+                override fun areItemsTheSame(
+                    oldItem: SearchResultUI,
+                    newItem: SearchResultUI,
+                ): Boolean {
+                    return oldItem.name == newItem.name
+                }
 
-            override fun areContentsTheSame(
-                oldItem: SearchResultUI,
-                newItem: SearchResultUI
-            ): Boolean {
-                return oldItem == newItem
+                override fun areContentsTheSame(
+                    oldItem: SearchResultUI,
+                    newItem: SearchResultUI,
+                ): Boolean {
+                    return oldItem == newItem
+                }
             }
-        }
     }
 }

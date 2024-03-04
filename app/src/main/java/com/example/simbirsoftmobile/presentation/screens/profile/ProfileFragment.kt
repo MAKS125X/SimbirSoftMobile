@@ -25,24 +25,26 @@ class ProfileFragment : Fragment() {
 
     private val profilePhotoFile: File
         get() {
-            val tempImagesDir = File(
-                requireContext().filesDir,
-                getString(R.string.temp_images_dir)
-            )
+            val tempImagesDir =
+                File(
+                    requireContext().filesDir,
+                    getString(R.string.temp_images_dir),
+                )
             tempImagesDir.mkdir()
 
             return File(
                 tempImagesDir,
-                getString(R.string.temp_image)
+                getString(R.string.temp_image),
             )
         }
 
     private val profilePhotoUri: Uri
-        get() = FileProvider.getUriForFile(
-            requireContext(),
-            getString(R.string.authorities),
-            profilePhotoFile
-        )
+        get() =
+            FileProvider.getUriForFile(
+                requireContext(),
+                getString(R.string.authorities),
+                profilePhotoFile,
+            )
 
     private val takePhotoForResult =
         registerForActivityResult(ActivityResultContracts.TakePicture()) {
@@ -56,14 +58,18 @@ class ProfileFragment : Fragment() {
         }
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?,
     ): View {
         _binding = FragmentProfileBinding.inflate(inflater, container, false)
         return binding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+    override fun onViewCreated(
+        view: View,
+        savedInstanceState: Bundle?,
+    ) {
         super.onViewCreated(view, savedInstanceState)
 
         if (profilePhotoFile.exists()) {
@@ -85,8 +91,9 @@ class ProfileFragment : Fragment() {
         val dialog: AlertDialog = builder.create()
 
         dialogBinding.pickPhotoLayout.setOnClickListener {
-
+            TODO()
         }
+
         dialogBinding.takePictureLayout.setOnClickListener {
             takePhotoForResult.launch(profilePhotoUri)
             dialog.dismiss()
@@ -108,6 +115,7 @@ class ProfileFragment : Fragment() {
     companion object {
         @JvmStatic
         fun newInstance() = ProfileFragment()
+
         const val TAG = "ProfileFragment"
 
         private val testList =
