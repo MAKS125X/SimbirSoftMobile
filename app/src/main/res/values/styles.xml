@@ -66,4 +66,9 @@
         <item name="android:textColor">?attr/colorOnSecondary</item>
         <item name="android:textSize">@dimen/category_text_size</item>
     </style>
+
+    <style name="SearchResultItemTextView" parent="ScreenH2TextView">
+        <item name="android:ellipsize">end</item>
+        <item name="android:singleLine">true</item>
+    </style>
 </resources>

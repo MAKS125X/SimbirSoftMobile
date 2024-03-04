@@ -45,4 +45,15 @@
 
     <dimen name="help_fragment_recycler_view_padding">4dp</dimen>
     <dimen name="help_fragment_title_text_margin_vertical">20dp</dimen>
+
+    <dimen name="search_result_item_image_size">24dp</dimen>
+    <dimen name="search_result_item_text_margin_vertical">18dp</dimen>
+
+    <dimen name="search_result_text_view_padding">20dp</dimen>
+
+    <dimen name="search_result_recycler_padding_start">20dp</dimen>
+    <dimen name="search_result_recycler_padding_end">8dp</dimen>
+
+    <dimen name="search_view_layout_padding_vertical">4dp</dimen>
+    <dimen name="search_view_layout_padding_horizontal">8dp</dimen>
 </resources>

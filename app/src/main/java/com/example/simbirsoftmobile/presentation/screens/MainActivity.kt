@@ -8,6 +8,7 @@ import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.ActivityMainBinding
 import com.example.simbirsoftmobile.presentation.screens.help.HelpFragment
 import com.example.simbirsoftmobile.presentation.screens.profile.ProfileFragment
+import com.example.simbirsoftmobile.presentation.screens.search.SearchFragment
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
@@ -38,6 +39,14 @@ class MainActivity : AppCompatActivity() {
                         binding.fragmentHolder.id,
                         HelpFragment.newInstance(),
                         HelpFragment.TAG
+                    ).commit()
+                }
+
+                R.id.search -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        binding.fragmentHolder.id,
+                        SearchFragment.newInstance(),
+                        SearchFragment.TAG
                     ).commit()
                 }
 
