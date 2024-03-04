@@ -1,4 +1,4 @@
-package com.example.simbirsoftmobile.models
+package com.example.simbirsoftmobile.presentation.models
 
 data class FriendUI(
     val name: String,

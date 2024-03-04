@@ -4,7 +4,7 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simbirsoftmobile.databinding.ItemCategoryBinding
-import com.example.simbirsoftmobile.models.CategoryUI
+import com.example.simbirsoftmobile.presentation.models.CategoryUI
 
 class CategoryAdapter(private val categoryArray: Array<CategoryUI>) :
     RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {

@@ -13,7 +13,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.FragmentEditPhotoDialogBinding
 import com.example.simbirsoftmobile.databinding.FragmentProfileBinding
-import com.example.simbirsoftmobile.models.FriendUI
+import com.example.simbirsoftmobile.presentation.models.FriendUI
 import java.io.File
 
 class ProfileFragment : Fragment() {

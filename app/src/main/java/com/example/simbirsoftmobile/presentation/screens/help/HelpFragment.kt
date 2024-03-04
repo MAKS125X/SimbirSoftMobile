@@ -8,7 +8,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.FragmentHelpBinding
-import com.example.simbirsoftmobile.models.CategoryUI
+import com.example.simbirsoftmobile.presentation.models.CategoryUI
 
 class HelpFragment : Fragment() {
     private var _binding: FragmentHelpBinding? = null

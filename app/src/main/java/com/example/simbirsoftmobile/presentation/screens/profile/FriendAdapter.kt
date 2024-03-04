@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.simbirsoftmobile.databinding.ItemFriendBinding
-import com.example.simbirsoftmobile.models.FriendUI
+import com.example.simbirsoftmobile.presentation.models.FriendUI
 
 class FriendAdapter(private val friendList: Array<FriendUI>) :
     RecyclerView.Adapter<FriendAdapter.ViewHolder>() {
