@@ -6,16 +6,22 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.FragmentHelpBinding
-import com.example.simbirsoftmobile.presentation.models.CategoryUI
+import com.example.simbirsoftmobile.repository.CategoryRepository
 
 class HelpFragment : Fragment() {
     private var _binding: FragmentHelpBinding? = null
     private val binding: FragmentHelpBinding
         get() = _binding!!
 
-    val adapter: CategoryAdapter by lazy { CategoryAdapter(testList) }
+    val adapter: CategoryAdapter by lazy {
+        CategoryAdapter(
+            CategoryRepository.getCategories(
+                requireContext(),
+            ),
+            requireContext(),
+        )
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -44,14 +50,5 @@ class HelpFragment : Fragment() {
 
         @JvmStatic
         fun newInstance() = HelpFragment()
-
-        private val testList =
-            arrayOf(
-                CategoryUI("Дети", R.drawable.category_children),
-                CategoryUI("Взрослые", R.drawable.category_adults),
-                CategoryUI("Пожилые", R.drawable.category_old),
-                CategoryUI("Животные", R.drawable.category_animals),
-                CategoryUI("Мероприятия", R.drawable.category_events),
-            )
     }
 }

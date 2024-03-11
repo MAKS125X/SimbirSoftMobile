@@ -138,8 +138,6 @@ class ProfileFragment : Fragment() {
     }
 
     private fun updateImage() {
-        // Сброс ссылки, так как иначе обновление
-        // происходит только при перезапуске приложения
         binding.layoutBased.profileIV.setImageURI(null)
         binding.layoutBased.profileIV.setImageURI(profilePhotoUri)
     }

@@ -19,4 +19,19 @@
     <string name="temp_image" translatable="false">temp_image.jpg</string>
     <string name="authorities" translatable="false">com.example.fileprovider</string>
     <string name="select_help_category">Select the help category</string>
+    <string name="filter">Filter</string>
+    <string name="adults">Adult</string>
+    <string name="children">Children</string>
+    <string name="animals">Animals</string>
+    <string name="events">Events</string>
+    <string name="old">Old</string>
+
+    <string name="incorrect_data_format">Incorrect data format</string>
+    <string name="unknown_category">Unknown category</string>
+    <string name="accept">Accept</string>
+    <string name="write_us_underline"> <u>Write us</u> </string>
+    <string name="go_to_organizer"> <u>Go to the organization\'s website</u> </string>
+    <string name="nothing_was_found_based_on_filters">Nothing was found based on your filters</string>
+    <string name="not_select_any_categories">You have not selected any categories</string>
+    <string name="do_you_have_questions">Do you have any questions?</string>
 </resources>

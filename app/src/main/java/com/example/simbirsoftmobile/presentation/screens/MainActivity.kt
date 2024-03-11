@@ -7,6 +7,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.ActivityMainBinding
 import com.example.simbirsoftmobile.presentation.screens.help.HelpFragment
+import com.example.simbirsoftmobile.presentation.screens.news.NewsFragment
 import com.example.simbirsoftmobile.presentation.screens.profile.ProfileFragment
 import com.example.simbirsoftmobile.presentation.screens.search.SearchFragment
 
@@ -50,6 +51,14 @@ class MainActivity : AppCompatActivity() {
                     ).commit()
                 }
 
+                R.id.news -> {
+                    supportFragmentManager.beginTransaction().replace(
+                        binding.fragmentHolder.id,
+                        NewsFragment.newInstance(),
+                        NewsFragment.TAG,
+                    ).commit()
+                }
+
                 else -> {
                     val toastMassage = it.title
                     Toast.makeText(this, toastMassage, Toast.LENGTH_SHORT).show()
@@ -61,7 +70,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.toolbar_menu, menu)
+        menuInflater.inflate(R.menu.profile_toolbar_menu, menu)
         return true
     }
 }

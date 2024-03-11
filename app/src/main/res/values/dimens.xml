@@ -56,4 +56,31 @@
 
     <dimen name="search_view_layout_padding_vertical">4dp</dimen>
     <dimen name="search_view_layout_padding_horizontal">8dp</dimen>
+
+    <dimen name="event_description_text_size">14sp</dimen>
+    <dimen name="event_details_toolbar_margin_bottom">16dp</dimen>
+    <dimen name="event_details_padding">20dp</dimen>
+    <dimen name="event_details_elements_margin_bottom">10dp</dimen>
+    <dimen name="event_details_sections_margin_bottom">20dp</dimen>
+    <dimen name="event_details_icon_size">24dp</dimen>
+    <dimen name="event_details_additional_text_size">12sp</dimen>
+    <dimen name="event_details_icon_margin_end">10dp</dimen>
+    <dimen name="event_details_horizontal_text_space">6dp</dimen>
+
+    <dimen name="filter_item_margin_end">16dp</dimen>
+    <dimen name="filter_item_padding_vertical">16dp</dimen>
+    <dimen name="filter_item_padding_start">20dp</dimen>
+    <dimen name="filter_recycler_padding">8dp</dimen>
+
+    <dimen name="event_item_padding">4dp</dimen>
+    <dimen name="event_item_title_padding_horizontal">40dp</dimen>
+    <dimen name="event_item_description_padding_horizontal">26dp</dimen>
+    <dimen name="event_item_spacer">8dp</dimen>
+    <dimen name="events_recycler_padding">8dp</dimen>
+    <dimen name="events_text_margin_top">8dp</dimen>
+
+
+
+
+
 </resources>
