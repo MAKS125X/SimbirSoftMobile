@@ -53,7 +53,7 @@ class EventDetailsFragment : Fragment() {
             binding.organizerNameTV.text = event.organizerName
             binding.addressTV.text = event.address
 
-            binding.remainDateTV.text = getRemainingDateInfo(event.dateStart, event.dateEnd)
+            binding.remainDateTV.text = getRemainingDateInfo(event.dateStart, event.dateEnd, requireContext())
 
             initEmailSection(event.email)
             initPhoneNumbers(event.phoneNumbers)

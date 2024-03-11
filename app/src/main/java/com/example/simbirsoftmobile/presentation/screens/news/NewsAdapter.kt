@@ -2,7 +2,6 @@ package com.example.simbirsoftmobile.presentation.screens.news
 
 import android.content.Context
 import android.content.res.Resources
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.core.content.ContextCompat
@@ -59,18 +58,16 @@ class NewsAdapter(private val onItemClick: OnItemClick, private val context: Con
             }
             titleTV.text = model.title
             descriptionTV.text = model.description
-            remainDateTV.text = getRemainingDateInfo(model.dateStart, model.dateEnd)
+            remainDateTV.text = getRemainingDateInfo(model.dateStart, model.dateEnd, context)
 
             try {
                 val drawable = ContextCompat.getDrawable(context, model.imageUrl)
                 if (drawable != null) {
                     previewIV.setImageDrawable(drawable)
                 } else {
-                    Log.e("ItemNewBinding", "Drawable with ID $model.imageUrl not found")
                     previewIV.setImageResource(R.drawable.news_preview_not_found)
                 }
             } catch (e: Resources.NotFoundException) {
-                Log.e("ItemNewBinding", e.message.toString())
                 previewIV.setImageResource(R.drawable.news_preview_not_found)
             }
         }

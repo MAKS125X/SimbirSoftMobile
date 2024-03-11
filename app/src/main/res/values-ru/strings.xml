@@ -32,4 +32,7 @@
     <string name="nothing_was_found_based_on_filters">На основании ваших фильтров ничего не найдено</string>
     <string name="not_select_any_categories">Вы не выбрали ни одной категории</string>
     <string name="do_you_have_questions">У вас есть вопросы?</string>
+    <string name="event_already_ended">Мероприятие уже закончилось</string>
+    <string name="will_start_soon">Начнётся через %1$s дней (%2$s – %3$s)</string>
+    <string name="days_left">Осталось %1$s дней (%2$s – %3$s)</string>
 </resources>

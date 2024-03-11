@@ -1,5 +1,7 @@
 package com.example.simbirsoftmobile.presentation.screens.utils
 
+import android.content.Context
+import com.example.simbirsoftmobile.R
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
@@ -13,6 +15,7 @@ import java.time.LocalDate as JavaLocalDate
 fun getRemainingDateInfo(
     start: LocalDate,
     end: LocalDate,
+    context: Context
 ): String {
     val today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())
     if (today > end) {
@@ -26,7 +29,7 @@ fun getRemainingDateInfo(
 
             javaDate.format(formatter)
         } else {
-            "Мероприятие уже закончилось"
+            context.getString(R.string.event_already_ended)
         }
     }
 
@@ -42,8 +45,18 @@ fun getRemainingDateInfo(
     )
 
     if (today < start) {
-        return "Начнётся через ${(start - today).days} дней ($startFormatted-$endFormatted)"
+        return context.getString(
+            R.string.will_start_soon,
+            (start - today).days.toString(),
+            startFormatted,
+            endFormatted,
+        )
     }
 
-    return "Осталось ${(end - today).days} дней ($startFormatted – $endFormatted)"
+    return context.getString(
+        R.string.days_left,
+        (end - today).days.toString(),
+        startFormatted,
+        endFormatted,
+    )
 }

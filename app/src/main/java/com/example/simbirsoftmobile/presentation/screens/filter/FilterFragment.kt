@@ -2,7 +2,6 @@ package com.example.simbirsoftmobile.presentation.screens.filter
 
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -54,7 +53,6 @@ class FilterFragment : Fragment() {
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.accept_filter -> {
-                    Log.d(TAG, "onViewCreated: $settingsList")
                     CategoryRepository.saveCategorySettings(
                         requireContext(),
                         settingsList,
