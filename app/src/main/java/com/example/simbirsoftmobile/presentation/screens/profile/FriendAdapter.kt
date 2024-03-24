@@ -1,12 +1,12 @@
-package com.example.simbirsoftmobile
+package com.example.simbirsoftmobile.presentation.screens.profile
 
 import android.graphics.Rect
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import com.example.simbirsoftmobile.databinding.FriendItemBinding
-import com.example.simbirsoftmobile.models.FriendUI
+import com.example.simbirsoftmobile.databinding.ItemFriendBinding
+import com.example.simbirsoftmobile.presentation.models.FriendUI
 
 class FriendAdapter(private val friendList: Array<FriendUI>) :
     RecyclerView.Adapter<FriendAdapter.ViewHolder>() {
@@ -15,7 +15,7 @@ class FriendAdapter(private val friendList: Array<FriendUI>) :
         viewType: Int,
     ): ViewHolder =
         ViewHolder(
-            FriendItemBinding.inflate(
+            ItemFriendBinding.inflate(
                 LayoutInflater.from(parent.context),
                 parent,
                 false,
@@ -31,7 +31,7 @@ class FriendAdapter(private val friendList: Array<FriendUI>) :
         holder.bind(friendList[position])
     }
 
-    class ViewHolder(private val binding: FriendItemBinding) :
+    class ViewHolder(private val binding: ItemFriendBinding) :
         RecyclerView.ViewHolder(binding.root) {
         fun bind(model: FriendUI) {
             with(binding) {
@@ -39,7 +39,7 @@ class FriendAdapter(private val friendList: Array<FriendUI>) :
             }
         }
 
-        private fun FriendItemBinding.setupUI(model: FriendUI) {
+        private fun ItemFriendBinding.setupUI(model: FriendUI) {
             nameTextView.text = model.name
             profileIV.setImageResource(model.imageUrl)
         }

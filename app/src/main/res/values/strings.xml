@@ -4,13 +4,19 @@
     <string name="push">Receive push notifications</string>
     <string name="your_friends">Your friends</string>
     <string name="profile_picture">Profile picture</string>
-    <string name="profile">Profile</string>
     <string name="logout">Logout</string>
-    <string name="news_icon">News</string>
-    <string name="search_icon">Search</string>
-    <string name="help_icon">Help</string>
-    <string name="history_icon">History</string>
-    <string name="profile_icon">Profile</string>
+    <string name="news">News</string>
+    <string name="search">Search</string>
+    <string name="help">Help</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
     <string name="loading">Loading…</string>
     <string name="mobile_simbir_soft">MobileSimbirSoft</string>
+    <string name="pick_photo">Pick a photo</string>
+    <string name="take_picture">Take a picture</string>
+    <string name="delete_picture">Delete</string>
+    <string name="temp_images_dir" translatable="false">temp_images</string>
+    <string name="temp_image" translatable="false">temp_image.jpg</string>
+    <string name="authorities" translatable="false">com.example.fileprovider</string>
+    <string name="select_help_category">Select the help category</string>
 </resources>

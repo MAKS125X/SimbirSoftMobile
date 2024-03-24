@@ -1,4 +1,4 @@
-package com.example.simbirsoftmobile
+package com.example.simbirsoftmobile.presentation.screens
 
 import android.annotation.SuppressLint
 import android.content.Intent
@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import androidx.appcompat.app.AppCompatActivity
+import com.example.simbirsoftmobile.R
 
 @SuppressLint("CustomSplashScreen")
 class SplashScreenActivity : AppCompatActivity() {
@@ -17,7 +18,7 @@ class SplashScreenActivity : AppCompatActivity() {
     }
 
     private fun scheduleSplashScreen() {
-        val splashScreenDuration = 2000L
+        val splashScreenDuration = 1000L
         Handler(Looper.getMainLooper()).postDelayed(
             {
                 val intent = Intent(this@SplashScreenActivity, MainActivity::class.java)

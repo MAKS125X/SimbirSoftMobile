@@ -5,13 +5,16 @@
     <string name="push">Получать push-уведомления</string>
     <string name="your_friends">Ваши друзья</string>
     <string name="profile_picture">Картинка профиля</string>
-    <string name="profile">Профиль</string>
     <string name="logout">Выйти из аккаунта</string>
-    <string name="news_icon">Новости</string>
-    <string name="search_icon">Поиск</string>
-    <string name="help_icon">Помочь</string>
-    <string name="history_icon">История</string>
-    <string name="profile_icon">Профиль</string>
+    <string name="news">Новости</string>
+    <string name="search">Поиск</string>
+    <string name="help">Помочь</string>
+    <string name="history">История</string>
+    <string name="profile">Профиль</string>
     <string name="loading">Загрузка…</string>
     <string name="mobile_simbir_soft">MobileSimbirSoft</string>
+    <string name="pick_photo">Выбрать фото</string>
+    <string name="take_picture">Сделать снимок</string>
+    <string name="delete_picture">Удалить</string>
+    <string name="select_help_category">Выберите категорию помощи</string>
 </resources>
