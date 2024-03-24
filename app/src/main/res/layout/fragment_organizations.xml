@@ -50,7 +50,7 @@
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="?attr/backgroundColor"
+            android:background="?android:attr/colorBackground"
             android:paddingStart="@dimen/search_result_recycler_padding_start"
             android:paddingEnd="@dimen/search_result_recycler_padding_end"
             tools:itemCount="6"

@@ -67,4 +67,8 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.6.2")
 
     implementation("androidx.viewpager2:viewpager2:1.0.0")
+
+    implementation("org.jetbrains.kotlinx:kotlinx-datetime:0.6.0-RC.2")
+
+    implementation("com.google.code.gson:gson:2.10.1")
 }

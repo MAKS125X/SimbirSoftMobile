@@ -8,8 +8,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simbirsoftmobile.databinding.ItemFriendBinding
 import com.example.simbirsoftmobile.presentation.models.FriendUI
 
-class FriendAdapter(private val friendList: Array<FriendUI>) :
-    RecyclerView.Adapter<FriendAdapter.ViewHolder>() {
+class FriendAdapter(
+    private val friendList: Array<FriendUI>
+) : RecyclerView.Adapter<FriendAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,

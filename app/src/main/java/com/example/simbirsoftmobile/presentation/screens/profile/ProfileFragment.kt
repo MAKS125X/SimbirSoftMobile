@@ -1,7 +1,10 @@
 package com.example.simbirsoftmobile.presentation.screens.profile
 
+import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -15,6 +18,7 @@ import com.example.simbirsoftmobile.databinding.FragmentEditPhotoDialogBinding
 import com.example.simbirsoftmobile.databinding.FragmentProfileBinding
 import com.example.simbirsoftmobile.presentation.models.FriendUI
 import java.io.File
+import java.io.FileOutputStream
 
 class ProfileFragment : Fragment() {
     private var _binding: FragmentProfileBinding? = null
@@ -49,11 +53,18 @@ class ProfileFragment : Fragment() {
     private val takePhotoForResult =
         registerForActivityResult(ActivityResultContracts.TakePicture()) {
             if (it != null && it) {
-                // Сброс ссылки, так как иначе обновление
-                // происходит только при перезапуске приложения
-                binding.layoutBased.profileIV.setImageURI(null)
 
-                binding.layoutBased.profileIV.setImageURI(profilePhotoUri)
+                updateImage()
+            }
+        }
+
+    private val pickImageForResult =
+        registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
+            if (result.resultCode == Activity.RESULT_OK) {
+                val data: Intent? = result.data
+                data?.data?.let { uri ->
+                    copyImageToProfileLocation(uri)
+                }
             }
         }
 
@@ -91,7 +102,9 @@ class ProfileFragment : Fragment() {
         val dialog: AlertDialog = builder.create()
 
         dialogBinding.pickPhotoLayout.setOnClickListener {
-            TODO()
+            val pickImg = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI)
+            pickImageForResult.launch(pickImg)
+            dialog.dismiss()
         }
 
         dialogBinding.takePictureLayout.setOnClickListener {
@@ -110,6 +123,23 @@ class ProfileFragment : Fragment() {
         binding.layoutBased.friendRecycler.addItemDecoration(FriendAdapter.CustomItemDecoration())
         binding.layoutBased.friendRecycler.adapter = adapter
         binding.layoutBased.friendRecycler.layoutManager = LinearLayoutManager(requireContext())
+    }
+
+    private fun copyImageToProfileLocation(imageUri: Uri) {
+        val inputStream = requireContext().contentResolver.openInputStream(imageUri)
+        val outputStream = FileOutputStream(profilePhotoFile)
+        inputStream?.use { input ->
+            outputStream.use { output ->
+                input.copyTo(output)
+            }
+        }
+
+        updateImage()
+    }
+
+    private fun updateImage() {
+        binding.layoutBased.profileIV.setImageURI(null)
+        binding.layoutBased.profileIV.setImageURI(profilePhotoUri)
     }
 
     override fun onDestroyView() {

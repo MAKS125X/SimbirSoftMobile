@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".presentation.screens.help.HelpFragment">
+    android:background="?attr/colorSurface"
+    tools:context=".presentation.screens.news.NewsFragment">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -14,6 +15,8 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_scrollFlags="scroll|enterAlways"
+        app:menu="@menu/news_toolbar_menu"
         app:popupTheme="@style/Base.Theme.SimbirSoftMobile"
         app:titleTextColor="?attr/colorOnPrimary">
 
@@ -22,34 +25,34 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
-            android:text="@string/help"
+            android:text="@string/profile"
             android:theme="@style/ToolbarTitle"
-            tools:text="Помочь" />
+            tools:text="Новости" />
     </androidx.appcompat.widget.Toolbar>
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/titleTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginVertical="@dimen/help_fragment_title_text_margin_vertical"
-        android:text="@string/select_help_category"
-        android:theme="@style/ScreenH2TextView"
-        app:layout_constraintEnd_toEndOf="@+id/toolbar"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerView"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginTop="@dimen/help_fragment_title_text_margin_vertical"
-        android:padding="@dimen/help_fragment_recycler_view_padding"
-        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        android:paddingHorizontal="@dimen/events_recycler_padding"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/titleTextView"
-        app:spanCount="2"
-        tools:itemCount="5"
-        tools:listitem="@layout/item_category" />
+        app:layout_constraintTop_toBottomOf="@+id/toolbar"
+        tools:itemCount="3"
+        tools:listitem="@layout/item_new" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/notFoundTV"
+        style="@style/ScreenH2TextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/events_text_margin_top"
+        android:text="@string/nothing_was_found_based_on_filters"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
