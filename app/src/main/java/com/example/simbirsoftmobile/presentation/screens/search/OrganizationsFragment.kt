@@ -47,6 +47,11 @@ class OrganizationsFragment : Fragment() {
         adapter.submitList(getRandomTestList())
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     companion object {
         const val TAG = "EventsFragment"
 

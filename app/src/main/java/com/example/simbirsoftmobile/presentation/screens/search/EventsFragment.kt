@@ -33,18 +33,24 @@ class EventsFragment : Fragment() {
         initAdapter()
     }
 
-    private fun initAdapter() {
-        binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        val divider = MaterialDividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
-        adapter.submitList(getRandomTestList())
-        divider.isLastItemDecorated = false
-        binding.recyclerView.addItemDecoration(divider)
-    }
+    private fun initAdapter() =
+        with(binding) {
+            recyclerView.adapter = adapter
+            val divider =
+                MaterialDividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
+            adapter.submitList(getRandomTestList())
+            divider.isLastItemDecorated = false
+            recyclerView.addItemDecoration(divider)
+        }
 
     override fun onResume() {
         super.onResume()
         adapter.submitList(getRandomTestList())
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

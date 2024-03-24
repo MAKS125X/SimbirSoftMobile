@@ -125,6 +125,11 @@ class ProfileFragment : Fragment() {
         binding.layoutBased.friendRecycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     private fun copyImageToProfileLocation(imageUri: Uri) {
         val inputStream = requireContext().contentResolver.openInputStream(imageUri)
         val outputStream = FileOutputStream(profilePhotoFile)
