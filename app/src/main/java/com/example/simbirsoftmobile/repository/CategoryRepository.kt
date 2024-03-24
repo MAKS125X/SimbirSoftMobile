@@ -14,24 +14,18 @@ object CategoryRepository {
     private const val CATEGORY_SETTINGS_KEY = "CATEGORY_SETTINGS"
     private const val SHARED_PREF_NAME = "MY_SHARED_PREF"
 
-    private val categoryGson by lazy {
-        GsonBuilder().registerTypeAdapter(
-            CategoryDeserializer.objectType,
-            CategoryDeserializer(),
-        ).create()
-    }
-
-    private val categorySettingsSerializeGson by lazy {
-        GsonBuilder().apply {
-            registerTypeAdapter(CategorySettingSerializer.objectType, CategorySettingSerializer())
-        }.create()
-    }
-
-    private val categorySettingsDeserializeGson by lazy {
-        GsonBuilder().registerTypeAdapter(
-            CategorySettingDeserializer.objectType,
-            CategorySettingDeserializer(),
-        ).create()
+    private val gson by lazy {
+        GsonBuilder()
+            .registerTypeAdapter(
+                CategoryDeserializer.objectType,
+                CategoryDeserializer(),
+            )
+            .registerTypeAdapter(CategorySettingSerializer.objectType, CategorySettingSerializer())
+            .registerTypeAdapter(
+                CategorySettingDeserializer.objectType,
+                CategorySettingDeserializer(),
+            )
+            .create()
     }
 
     fun getCategories(context: Context): List<Category> {
@@ -42,7 +36,7 @@ object CategoryRepository {
                 it.readText()
             }
 
-        return categoryGson.fromJson(json, CategoryDeserializer.objectType)
+        return gson.fromJson(json, CategoryDeserializer.objectType)
     }
 
     fun saveCategorySettings(
@@ -50,7 +44,7 @@ object CategoryRepository {
         settings: List<CategorySetting>,
     ) {
         val jsonList =
-            categorySettingsSerializeGson.toJson(settings, CategorySettingSerializer.objectType)
+            gson.toJson(settings, CategorySettingSerializer.objectType)
         val pref: SharedPreferences =
             context.getSharedPreferences(SHARED_PREF_NAME, Context.MODE_PRIVATE)
         val editor: SharedPreferences.Editor = pref.edit()
@@ -69,7 +63,7 @@ object CategoryRepository {
             return getCategories(context).map { it.toSettingsModel() }
         }
 
-        return categorySettingsDeserializeGson.fromJson(
+        return gson.fromJson(
             jsonList,
             CategorySettingDeserializer.objectType,
         )

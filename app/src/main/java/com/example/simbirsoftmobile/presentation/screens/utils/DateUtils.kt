@@ -6,16 +6,18 @@ import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.format
+import kotlinx.datetime.format.FormatStringsInDatetimeFormats
 import kotlinx.datetime.format.byUnicodePattern
 import kotlinx.datetime.minus
 import kotlinx.datetime.todayIn
 import java.time.format.DateTimeFormatterBuilder
 import java.time.LocalDate as JavaLocalDate
 
+@OptIn(FormatStringsInDatetimeFormats::class)
 fun getRemainingDateInfo(
     start: LocalDate,
     end: LocalDate,
-    context: Context
+    context: Context,
 ): String {
     val today: LocalDate = Clock.System.todayIn(TimeZone.currentSystemDefault())
     if (today > end) {
@@ -38,6 +40,7 @@ fun getRemainingDateInfo(
             byUnicodePattern("dd.MM")
         }
     )
+
     val endFormatted = end.format(
         LocalDate.Format {
             byUnicodePattern("dd.MM")

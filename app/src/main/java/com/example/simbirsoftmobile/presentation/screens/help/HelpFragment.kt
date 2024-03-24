@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
 import com.example.simbirsoftmobile.databinding.FragmentHelpBinding
 import com.example.simbirsoftmobile.repository.CategoryRepository
 
@@ -42,7 +41,6 @@ class HelpFragment : Fragment() {
 
     private fun initAdapter() {
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
     override fun onDestroyView() {

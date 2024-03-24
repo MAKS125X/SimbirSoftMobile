@@ -18,18 +18,15 @@ class FilterFragment : Fragment() {
     private val binding: FragmentFilterBinding
         get() = _binding!!
 
-    private var _settingsList: List<CategorySetting>? = null
-    private val settingsList: List<CategorySetting>
-        get() = _settingsList!!
+    private var settingsList: List<CategorySetting>? = null
 
-    private var _adapter: CategorySettingAdapter? = null
-    private val adapter: CategorySettingAdapter
-        get() = _adapter!!
+    private var adapter: CategorySettingAdapter? = null
 
     override fun onAttach(context: Context) {
         super.onAttach(context)
-        _settingsList = CategoryRepository.getCategorySettings(context)
-        _adapter = CategorySettingAdapter(settingsList, context)
+        settingsList = CategoryRepository.getCategorySettings(context)
+
+        adapter = CategorySettingAdapter(settingsList ?: listOf(), context)
     }
 
     override fun onCreateView(
@@ -53,10 +50,12 @@ class FilterFragment : Fragment() {
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
                 R.id.accept_filter -> {
-                    CategoryRepository.saveCategorySettings(
-                        requireContext(),
-                        settingsList,
-                    )
+                    settingsList?.let { list ->
+                        CategoryRepository.saveCategorySettings(
+                            requireContext(),
+                            list,
+                        )
+                    }
                 }
             }
 
@@ -67,7 +66,6 @@ class FilterFragment : Fragment() {
 
     private fun initAdapter() {
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         val divider = MaterialDividerItemDecoration(requireContext(), LinearLayoutManager.VERTICAL)
         divider.isLastItemDecorated = false

@@ -11,10 +11,13 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.ItemNewBinding
 import com.example.simbirsoftmobile.presentation.models.event.Event
+import com.example.simbirsoftmobile.presentation.screens.utils.TypedListener
 import com.example.simbirsoftmobile.presentation.screens.utils.getRemainingDateInfo
 
-class NewsAdapter(private val onItemClick: OnItemClick, private val context: Context) :
-    ListAdapter<Event, NewsAdapter.ViewHolder>(DiffCallback) {
+class NewsAdapter(
+    private val onItemClick: TypedListener<Int>,
+    private val context: Context,
+) : ListAdapter<Event, NewsAdapter.ViewHolder>(DiffCallback) {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
@@ -40,7 +43,7 @@ class NewsAdapter(private val onItemClick: OnItemClick, private val context: Con
 
     class ViewHolder(
         private val binding: ItemNewBinding,
-        private val onItemClick: OnItemClick,
+        private val onItemClick: TypedListener<Int>,
         private val context: Context,
     ) : RecyclerView.ViewHolder(binding.root) {
         fun bind(model: Event) {
@@ -51,10 +54,10 @@ class NewsAdapter(private val onItemClick: OnItemClick, private val context: Con
 
         private fun ItemNewBinding.setupUI(
             model: Event,
-            onItemClick: OnItemClick,
+            onItemClick: TypedListener<Int>,
         ) {
             newLayout.setOnClickListener {
-                onItemClick.onClick(model.id)
+                onItemClick(model.id)
             }
             titleTV.text = model.title
             descriptionTV.text = model.description
@@ -90,9 +93,5 @@ class NewsAdapter(private val onItemClick: OnItemClick, private val context: Con
                     return oldItem == newItem
                 }
             }
-    }
-
-    fun interface OnItemClick {
-        fun onClick(id: Int)
     }
 }

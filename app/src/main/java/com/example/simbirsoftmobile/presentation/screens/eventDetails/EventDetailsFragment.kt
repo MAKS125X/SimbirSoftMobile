@@ -49,36 +49,39 @@ class EventDetailsFragment : Fragment() {
             Toast.makeText(requireContext(), "Event with id: $eventId is null", Toast.LENGTH_LONG)
                 .show()
         } else {
-            binding.titleTV.text = event.title
-            binding.organizerNameTV.text = event.organizerName
-            binding.addressTV.text = event.address
+            with(binding) {
+                titleTV.text = event.title
+                organizerNameTV.text = event.organizerName
+                addressTV.text = event.address
 
-            binding.remainDateTV.text = getRemainingDateInfo(event.dateStart, event.dateEnd, requireContext())
+                remainDateTV.text =
+                    getRemainingDateInfo(event.dateStart, event.dateEnd, requireContext())
 
-            initEmailSection(event.email)
-            initPhoneNumbers(event.phoneNumbers)
-            initImage(event.imageUrl)
+                initEmailSection(event.email)
+                initPhoneNumbers(event.phoneNumbers)
+                initImage(event.imageUrl)
 
-            binding.descriptionTV.text = event.description
-            initOrganizerUrlText(event.siteUrl)
+                descriptionTV.text = event.description
+                initOrganizerUrlText(event.siteUrl)
 
-            binding.toolbar.setNavigationOnClickListener {
-                parentFragmentManager.popBackStack()
-            }
-
-            binding.toolbar.setOnMenuItemClickListener {
-                when (it.itemId) {
-                    R.id.share_event -> {
-                        val shareIntent =
-                            Intent().apply {
-                                action = Intent.ACTION_SEND
-                                putExtra(Intent.EXTRA_TEXT, event.title)
-                                type = "text/plain"
-                            }
-                        startActivity(Intent.createChooser(shareIntent, "Поделиться событием"))
-                    }
+                toolbar.setNavigationOnClickListener {
+                    parentFragmentManager.popBackStack()
                 }
-                true
+
+                toolbar.setOnMenuItemClickListener {
+                    when (it.itemId) {
+                        R.id.share_event -> {
+                            val shareIntent =
+                                Intent().apply {
+                                    action = Intent.ACTION_SEND
+                                    putExtra(Intent.EXTRA_TEXT, event.title)
+                                    type = "text/plain"
+                                }
+                            startActivity(Intent.createChooser(shareIntent, "Поделиться событием"))
+                        }
+                    }
+                    true
+                }
             }
         }
     }
@@ -99,7 +102,7 @@ class EventDetailsFragment : Fragment() {
     }
 
     private fun sendEmail(email: String) {
-        val subject = "Благотворительная помощь"
+        val subject = getString(R.string.charitable_assistance)
         val intent =
             Intent(Intent.ACTION_SENDTO).apply {
                 data = Uri.parse("mailto:")
@@ -148,6 +151,11 @@ class EventDetailsFragment : Fragment() {
     private fun openLink(link: String) {
         val intent = Intent(Intent.ACTION_VIEW, Uri.parse(link))
         startActivity(intent)
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {

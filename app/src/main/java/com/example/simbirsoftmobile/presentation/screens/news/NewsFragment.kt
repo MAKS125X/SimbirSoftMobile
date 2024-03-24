@@ -5,7 +5,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.simbirsoftmobile.R
 import com.example.simbirsoftmobile.databinding.FragmentNewsBinding
 import com.example.simbirsoftmobile.presentation.screens.eventDetails.EventDetailsFragment
@@ -18,9 +17,7 @@ class NewsFragment : Fragment() {
     private val binding: FragmentNewsBinding
         get() = _binding!!
 
-    private var _adapter: NewsAdapter? = null
-    private val adapter: NewsAdapter
-        get() = _adapter!!
+    private var adapter: NewsAdapter? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -59,10 +56,9 @@ class NewsFragment : Fragment() {
     }
 
     private fun initAdapter() {
-        _adapter = NewsAdapter(this::moveToEventDetailsFragment, requireContext())
+        adapter = NewsAdapter(this::moveToEventDetailsFragment, requireContext())
 
         binding.recyclerView.adapter = adapter
-        binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun onResume() {
@@ -85,9 +81,14 @@ class NewsFragment : Fragment() {
             } else {
                 binding.notFoundTV.visibility = View.GONE
                 binding.recyclerView.visibility = View.VISIBLE
-                adapter.submitList(events)
+                adapter?.submitList(events)
             }
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        adapter = null
     }
 
     companion object {

@@ -7,8 +7,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.simbirsoftmobile.databinding.ItemCategoryBinding
 import com.example.simbirsoftmobile.presentation.models.category.Category
 
-class CategoryAdapter(private val categoryArray: List<Category>, val context: Context) :
-    RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
+class CategoryAdapter(
+    private val categoryArray: List<Category>,
+    val context: Context,
+) : RecyclerView.Adapter<CategoryAdapter.ViewHolder>() {
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int,
