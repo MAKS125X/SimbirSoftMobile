@@ -53,6 +53,7 @@
             android:background="?attr/backgroundColor"
             android:paddingStart="@dimen/search_result_recycler_padding_start"
             android:paddingEnd="@dimen/search_result_recycler_padding_end"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
             tools:itemCount="6"
             tools:listitem="@layout/item_search_result" />
 

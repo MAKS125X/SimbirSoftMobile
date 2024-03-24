@@ -39,6 +39,11 @@ class HelpFragment : Fragment() {
         binding.recyclerView.layoutManager = GridLayoutManager(requireContext(), 2)
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     companion object {
         const val TAG = "HelpFragment"
 

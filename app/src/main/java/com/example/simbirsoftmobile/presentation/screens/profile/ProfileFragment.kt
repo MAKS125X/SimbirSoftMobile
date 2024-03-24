@@ -112,6 +112,11 @@ class ProfileFragment : Fragment() {
         binding.layoutBased.friendRecycler.layoutManager = LinearLayoutManager(requireContext())
     }
 
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
+
     companion object {
         @JvmStatic
         fun newInstance() = ProfileFragment()

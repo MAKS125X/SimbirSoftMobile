@@ -30,18 +30,19 @@ class SearchFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-        val tabs: List<String> = listOf("По мероприятиям", "По НКО")
+        val pagerItems =
+            listOf(
+                PagerItem("По мероприятиям", EventsFragment.newInstance()),
+                PagerItem("По НКО", OrganizationsFragment.newInstance()),
+            )
+
         val pagerAdapter = PagerAdapter(this)
         binding.fragmentViewPager.adapter = pagerAdapter
 
-        pagerAdapter.update(
-            listOf(
-                EventsFragment.newInstance(),
-                OrganizationsFragment.newInstance(),
-            ),
-        )
+        pagerAdapter.update(pagerItems.map { it.fragment })
+
         TabLayoutMediator(binding.tabLayout, binding.fragmentViewPager) { tab, position ->
-            tab.text = tabs[position]
+            tab.text = pagerItems[position].title
         }.attach()
 
         binding.searchView.setOnQueryTextListener(
@@ -58,6 +59,11 @@ class SearchFragment : Fragment() {
                 }
             },
         )
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     companion object {
