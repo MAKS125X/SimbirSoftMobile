@@ -31,6 +31,10 @@ class NewsFragment : Fragment() {
 
     override fun onSaveInstanceState(outState: Bundle) {
         super.onSaveInstanceState(outState)
+        saveListInInstanceState(outState)
+    }
+
+    private fun saveListInInstanceState(outState: Bundle) {
         val currentState = newsUiState
         if (currentState is UiState.Success) {
             outState.putParcelableArrayList(LIST_KEY, ArrayList(currentState.data))
@@ -55,13 +59,17 @@ class NewsFragment : Fragment() {
         initAdapter()
         initToolbar()
 
-        if (savedInstanceState != null) {
-            val currentList = getNewsListFromBundle(savedInstanceState)
-
-            newsUiState = UiState.Success(currentList)
+        if (newsUiState is UiState.Success) {
             updateUiState()
         } else {
-            getNewsListFromFile()
+            if (savedInstanceState != null) {
+                val currentList = getNewsListFromBundle(savedInstanceState)
+
+                newsUiState = UiState.Success(currentList)
+                updateUiState()
+            } else {
+                getNewsListFromFile()
+            }
         }
     }
 
@@ -76,8 +84,8 @@ class NewsFragment : Fragment() {
 
     private fun getNewsListFromFile() {
         newsUiState = UiState.Loading
-
         updateUiState()
+
         val loadList = Runnable {
             val requiredCategories =
                 CategoryRepository.getSelectedCategoriesId(requireContext())
