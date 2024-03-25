@@ -57,9 +57,9 @@ class NewsFragment : Fragment() {
 
         if (savedInstanceState != null) {
             val currentList = getNewsListFromBundle(savedInstanceState)
+
             newsUiState = UiState.Success(currentList)
             updateUiState()
-
         } else {
             getNewsListFromFile()
         }

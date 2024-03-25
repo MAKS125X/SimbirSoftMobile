@@ -33,7 +33,6 @@
     <string name="nothing_was_found_based_on_filters">Nothing was found based on your filters</string>
     <string name="not_select_any_categories">You have not selected any categories</string>
     <string name="do_you_have_questions">Do you have any questions?</string>
-
     <string name="event_already_ended">The event has already ended</string>
     <string name="will_start_soon">It will start in %1$s days (%2$s – %3$s)</string>
     <string name="days_left">Left %1$s days (%2$s – %3$s)</string>

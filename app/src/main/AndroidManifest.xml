@@ -26,10 +26,11 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.SimbirSoftMobile"
         tools:targetApi="31">
+
         <service
             android:name=".presentation.screens.help.DownloadCategoriesService"
             android:enabled="true"
-            android:exported="false"></service>
+            android:exported="false" />
 
         <activity
             android:name=".presentation.screens.SplashScreenActivity"
@@ -42,6 +43,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".presentation.screens.MainActivity"
             android:exported="true">

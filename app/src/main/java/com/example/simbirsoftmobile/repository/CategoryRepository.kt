@@ -44,7 +44,6 @@ object CategoryRepository {
         emptyList()
     }
 
-
     fun saveCategorySettings(
         context: Context,
         settings: List<CategorySetting>,

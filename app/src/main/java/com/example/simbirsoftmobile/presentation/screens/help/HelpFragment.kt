@@ -24,19 +24,20 @@ class HelpFragment : Fragment() {
     var adapter: CategoryAdapter? = null
     private var categoriesUiState: UiState<List<Category>> = UiState.Idle
 
-    private val dataBroadcastReceiver = object : BroadcastReceiver() {
-        override fun onReceive(context: Context, intent: Intent) {
-            val currentCategoryList = getArrayListFromIntent(intent)
+    private val dataBroadcastReceiver =
+        object : BroadcastReceiver() {
+            override fun onReceive(context: Context, intent: Intent) {
+                val currentCategoryList = getArrayListFromIntent(intent)
 
-            if (currentCategoryList.isEmpty()) {
-                categoriesUiState = UiState.Error(getString(R.string.empty_category_list_error))
-                updateUiState()
-            } else {
-                categoriesUiState = UiState.Success(currentCategoryList)
-                updateUiState()
+                if (currentCategoryList.isEmpty()) {
+                    categoriesUiState = UiState.Error(getString(R.string.empty_category_list_error))
+                    updateUiState()
+                } else {
+                    categoriesUiState = UiState.Success(currentCategoryList)
+                    updateUiState()
+                }
             }
         }
-    }
 
     private fun getArrayListFromIntent(intent: Intent) =
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {

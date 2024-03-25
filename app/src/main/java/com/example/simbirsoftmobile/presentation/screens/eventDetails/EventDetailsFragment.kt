@@ -103,7 +103,7 @@ class EventDetailsFragment : Fragment() {
                             getRemainingDateInfo(
                                 currentState.data.dateStart,
                                 currentState.data.dateEnd,
-                                requireContext()
+                                requireContext(),
                             )
 
                         initEmailSection(currentState.data.email)
@@ -125,7 +125,7 @@ class EventDetailsFragment : Fragment() {
                                     startActivity(
                                         Intent.createChooser(
                                             shareIntent,
-                                            "Поделиться событием"
+                                            "Поделиться событием",
                                         )
                                     )
                                 }

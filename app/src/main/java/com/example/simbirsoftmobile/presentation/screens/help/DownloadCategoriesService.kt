@@ -12,7 +12,11 @@ class DownloadCategoriesService : Service() {
 
     override fun onBind(intent: Intent): IBinder? = null
 
-    override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
+    override fun onStartCommand(
+        intent: Intent?,
+        flags: Int,
+        startId: Int,
+    ): Int {
         downloader.load()
 
         return START_REDELIVER_INTENT
