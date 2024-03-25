@@ -166,12 +166,14 @@ class NewsFragment : Fragment() {
     private fun initToolbar() {
         binding.toolbar.setOnMenuItemClickListener {
             when (it.itemId) {
-                R.id.open_filter ->
+                R.id.open_filter -> {
                     parentFragmentManager.beginTransaction().replace(
                         R.id.fragmentHolder,
                         FilterFragment.newInstance(),
                         FilterFragment.TAG,
                     ).addToBackStack(FilterFragment.TAG).commit()
+                    newsUiState = UiState.Idle
+                }
             }
             true
         }
